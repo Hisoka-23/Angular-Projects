@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Header } from './header/header/header';
-import { Sidebar } from './sidebar/sidebar/sidebar';
-import { Dashboard } from '../main/dashboard/dashboard';
-import { Footer } from './footer/footer/footer';
+import { Header } from './header/header';
+import { Sidebar } from './sidebar/sidebar';
+import { Footer } from './footer/footer';
 import { RouterOutlet } from '@angular/router';
 
 @Component({

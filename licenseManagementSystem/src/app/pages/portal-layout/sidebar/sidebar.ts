@@ -1,7 +1,7 @@
-import { MenuItem } from './../../../../interface/menu-item.interface';
+import { MenuItem } from './../../../interface/menu-item.interface';
 import { Component, signal } from '@angular/core';
 import { OverlayscrollbarsModule } from 'overlayscrollbars-ngx';
-import { MENU_ITEMS } from '../../../../constants/menu.constants';
+import { MENU_ITEMS } from '../../../constants/menu.constants';
 import { RouterLink, RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { NgClass } from '@angular/common';
 

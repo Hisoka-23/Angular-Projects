@@ -10,6 +10,7 @@
     --medium-color:#dfe0e1;
     --success-color:#27bb4f;
     --warning-color:#ffc409;
+    --white-color:#fff;
     
     --font-size-xs: 0.7rem;
     --font-size-small: 0.8rem;
@@ -26,14 +27,18 @@
 
 /* text color */
 .primary-color{
-    color: var(--primary-color);
+    color: var(--primary-color) !important;
 }
 
 .error-color{
-    color: var(--danger-color);
+    color: var(--danger-color) !important;
 }
 
 /* font sizes */
 .font-large{
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-large) !important;
+}
+
+.bg-primary-color{
+    background-color: var(--primary-color) !important;
 }

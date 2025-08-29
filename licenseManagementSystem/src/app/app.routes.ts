@@ -17,8 +17,18 @@ export const routes: Routes = [
             },
             {
                 path: 'dashboard',
-                loadComponent: () => import('./pages/main/dashboard/dashboard').then(m => m.Dashboard),
+                loadComponent: () => 
+                    import('./pages/main/dashboard/dashboard').then(
+                        m => m.Dashboard
+                    ),
             },
+            {
+                path: 'users',
+                loadComponent: () => 
+                    import('./pages/main/users/users').then(
+                        m => m.Users
+                    ),
+            }
         ],
     }
 ];
