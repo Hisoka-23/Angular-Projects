@@ -1,6 +1,9 @@
-<div class="mx-4 my-1 border-0">
+<div [class]="isCard() ? '' : 'mx-4 my-1 border-0'">
 
-    <app-content-header title="title" [subRoute]="title"></app-content-header>
+    @if (!isCard) {
+        <app-content-header title="title" [subRoute]="title"></app-content-header>
+
+    }
 
     <div class="d-flex align-items-center justify-content-end">
         <input 
@@ -44,11 +47,11 @@
             rowHeight="auto" 
             [count]="users().length"
             [offset]="0" 
-            [limit]="10" 
+            [limit]="isCard() ? 3 : 10" 
             (page)="onPageChange($event)" 
             (sort)="onSort($event)"
         >
-            
+            <!-- [style.height.ps]='400' -->
             <!-- Zero Column photo -->
             <ngx-datatable-column prop="photo">
                 <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
@@ -177,17 +180,19 @@
 <!-- <button type="button" class="btn btn-primary">Create template modal</button> -->
  
 <ng-template #userFormTemplate>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
+  <div class="modal-header d-flex align-items-center justify-content-between">
+    <h4 class="modal-title mb-0">{{ updateItem() ? 'Edit' : 'Add' }} User</h4>
     <button 
         type="button" 
-        class="btn-close close pull-right" 
+        class="btn-close close" 
         aria-label="Close" 
-        (click)="modalRef()?.hide()">
+        (click)="closeUserModal()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    This is a modal.
+    
+    <app-edit-user [updateItem]="updateItem()!" (addedData)="addUser($event)" (updatedData)="updateUser($event)"></app-edit-user>
+    
   </div>
 </ng-template>

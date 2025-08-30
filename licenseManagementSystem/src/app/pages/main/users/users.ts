@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { Component, inject, OnInit, signal, TemplateRef, viewChild } from '@angular/core';
+import { Component, inject, input, OnInit, signal, TemplateRef, viewChild } from '@angular/core';
 import { ContentHeader } from '../../../widgets/content-header/content-header';
 import { ColumnMode, DatatableComponent, NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { USERS } from '../../../mock-data/users.mock';
@@ -9,18 +9,21 @@ import { MatButtonModule } from '@angular/material/button';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver'
 import { ModalModule, BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { using } from 'rxjs';
+import { EditUser } from "./components/edit-user/edit-user";
 
 @Component({
   selector: 'app-users',
   standalone: true,
   imports: [
-    ContentHeader, 
-    NgxDatatableModule, 
-    DatePipe, 
-    MatButtonModule, 
+    ContentHeader,
+    NgxDatatableModule,
+    DatePipe,
+    MatButtonModule,
     MatIconModule,
-    ModalModule
-  ],
+    ModalModule,
+    EditUser
+],
   providers:[BsModalService],
   templateUrl: './users.html',
   styleUrl: './users.css'
@@ -40,6 +43,11 @@ export class Users implements OnInit {
   loadingIndicator = signal<boolean>(false);
 
   modalRef = signal<BsModalRef | null>(null);
+
+  updateItem = signal<User | null>(null);
+
+  //check card for component reusability
+  isCard = input<boolean>(false);
 
   private modalService = inject(BsModalService);
 
@@ -157,7 +165,30 @@ export class Users implements OnInit {
   }
 
   openUserFormModal(template: TemplateRef<void>, User?: User){
-    this.modalRef.set(this.modalService.show(template));
+
+    this.updateItem.set(User ?? null);
+
+    this.modalRef.set(this.modalService.show(template, { class: 'modal-lg' }));
+  }
+
+  closeUserModal(){
+    this.modalRef()?.hide();
+  }
+
+  addUser(user: User){
+    this.temp.update((users) => [user, ...users]);
+    this.users.update((users) => [user, ...users]);
+    this.closeUserModal();
+  }
+
+  updateUser(updateUserData: User){
+    this.temp.update((users) => 
+      users.map((user) => (user.id == updateUserData.id ? updateUserData : user))
+    );
+    this.users.update((users) => 
+      users.map((user) => (user.id == updateUserData.id ? updateUserData : user))
+    );
+    this.closeUserModal();
   }
 
 }
