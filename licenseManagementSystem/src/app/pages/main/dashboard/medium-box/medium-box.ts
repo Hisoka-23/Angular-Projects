@@ -1,10 +1,9 @@
-import { LowerCasePipe, NgClass } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-medium-box',
   standalone: true,
-  imports: [LowerCasePipe, NgClass],
+  imports: [],
   templateUrl: './medium-box.html',
   styleUrl: './medium-box.css'
 })
