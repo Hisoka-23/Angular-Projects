@@ -1,38 +1,198 @@
-<main class="container-fluid">
-    <!-- Header row -->
-    <div class="card">
-        <div class="d-flex flex-wrap align-items-center justify-content-between mb-2 p-3">
-            <h1 class="page-title mb-3 mb-sm-0">Add Customer</h1>
+<div class="mx-3 my-1 border-0 p-0" >
 
-            <div class="d-flex flex-wrap gap-2">
+    <app-content-header title="Customer List" [subRoute]="title"></app-content-header>
 
-                <button matButton="filled" color="primary">
-                    <i class="bi bi-plus-lg me-1"></i>
-                    ADD
-                </button>
 
-                <button matButton="filled" color="primary">
-                    <i class="bi bi-plus-lg me-1"></i>
-                    Edit
-                </button>
 
-                <button matButton="filled" color="primary">
-                    <i class="bi bi-plus-lg me-1"></i>
-                    Save
-                </button>
+<div class="d-flex align-items-center justify-content-end">
+        <button class="ms-1" mat-raised-button color="primary" (click)="openUserFormModal(userFormTemplate)">
+            <mat-icon aria-hidden="false" aria-label="icon" fontIcon="add">
+            </mat-icon>
+            Add USER
+        </button>
+    </div> 
 
-                <button matButton="filled" color="primary">
-                    <i class="bi bi-plus-lg me-1"></i>
-                    Cancel
-                </button>
+    <div class="col-md-12 p-0 mb-3 mt-1" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+        <ngx-datatable 
+            #customer 
+            class="material" 
+            [rows]="customers()" 
+            [columnMode]="ColumnMode.force"
+            [headerHeight]="50" 
+            [footerHeight]="50" 
+            rowHeight="auto" 
+            [count]="customers().length" 
+            [offset]="1"
+            [limit]="7" 
+            (page)="onPageChange($event)" 
+            (sort)="onSortChange($event)">
 
-                <button matButton="filled" color="primary">
-                    <i class="bi bi-plus-lg me-1"></i>
-                    Search
-                </button>
+            <!-- Product Name -->
+            <ngx-datatable-column prop="product" sortable="true">
 
-            </div>
+                <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+
+                    <span class="tableHeader">Product Name</span>
+
+                </ng-template>
+
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                    {{ value }}
+
+                </ng-template>
+
+            </ngx-datatable-column>
+
+            <!-- Serial No -->
+            <ngx-datatable-column prop="serialNo" sortable="true">
+
+                <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+
+                    <span class="tableHeader">Serial Number</span>
+
+                </ng-template>
+
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                    {{ value }}
+
+                </ng-template>
+
+            </ngx-datatable-column>
+
+            <!-- Key Number  -->
+            <ngx-datatable-column prop="keyNo" sortable="true">
+
+                <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+
+                    <span class="tableHeader">Key Number</span>
+
+                </ng-template>
+
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                    {{ value }}
+
+                </ng-template>
+
+            </ngx-datatable-column>
+
+            <!-- Customer Name -->
+            <ngx-datatable-column prop="customerName" sortable="true">
+
+                <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+
+                    <span class="tableHeader">Customer Name</span>
+
+                </ng-template>
+
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                    {{ value }}
+
+                </ng-template>
+
+            </ngx-datatable-column>
+
+            <!-- Address -->
+            <ngx-datatable-column prop="address" sortable="true">
+
+                <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+
+                    <span class="tableHeader">Address</span>
+
+                </ng-template>
+
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                    {{ value }}
+
+                </ng-template>
+
+            </ngx-datatable-column>
+
+            <!-- cityState -->
+            <ngx-datatable-column prop="cityState" sortable="true">
+
+                <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+
+                    <span class="tableHeader">City/State</span>
+
+                </ng-template>
+
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                    {{ value }}
+
+                </ng-template>
+
+            </ngx-datatable-column>
+
+            <!-- mobile -->
+            <ngx-datatable-column prop="mobile" sortable="true">
+
+                <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+
+                    <span class="tableHeader">Mobile Number</span>
+
+                </ng-template>
+
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                    {{ value }}
+
+                </ng-template>
+
+            </ngx-datatable-column>
+
+            <!-- amcEndDate -->
+            <ngx-datatable-column prop="amcEndDate" sortable="true">
+
+                <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+
+                    <span class="tableHeader">AMC/EndDate</span>
+
+                </ng-template>
+
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                    {{ value }}
+
+                </ng-template>
+
+            </ngx-datatable-column>
+
+            <!-- Last Column Action edit & delete -->
+            <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                    <span class="tableHeader">ACTION</span>
+                </ng-template>
+
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <button class="btn btn-sm mx-1">
+                        <i class="fa fa-edit primary-color"></i>
+                    </button>
+                </ng-template>
+            </ngx-datatable-column>
+
+        </ngx-datatable>
+
+    </div>
+
+
+
+    <ng-template #userFormTemplate>
+        <div class="modal-header d-flex align-items-center justify-content-between">
+            <h4 class="modal-title mb-0">Customer</h4>
+            <button type="button" class="btn-close close" aria-label="Close" (click)="closeUserModal()">
+                <span aria-hidden="true" class="visually-hidden">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
 
         </div>
-    </div>
-</main>
+    </ng-template>
+
+</div>
