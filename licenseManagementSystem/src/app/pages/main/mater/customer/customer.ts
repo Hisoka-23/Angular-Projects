@@ -7,6 +7,7 @@ import { BsModalRef, BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { ContentHeader } from "../../../../widgets/content-header/content-header";
 import { CUSTOMER } from '../../../../mock-data/customer.list.mock';
 import { OnInit } from '@angular/core';
+import { AppEditCustomer } from "./app-edit-customer/app-edit-customer";
 
 @Component({
   selector: 'app-customer',
@@ -16,8 +17,9 @@ import { OnInit } from '@angular/core';
     MatButtonModule,
     MatIconModule,
     ModalModule,
-    ContentHeader
-  ],
+    ContentHeader,
+    AppEditCustomer
+],
   providers:[BsModalService],
   templateUrl: './customer.html',
   styleUrl: './customer.css'
@@ -49,7 +51,7 @@ export class Customer implements OnInit {
 
     openUserFormModal(template: TemplateRef<void>, User?: CustomerList){
   
-      this.modalRef.set(this.modalService.show(template, { class: 'modal-lg' }));
+      this.modalRef.set(this.modalService.show(template,{ class: 'modal-xl' }));
     }
 
       closeUserModal(){

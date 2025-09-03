@@ -1,0 +1,348 @@
+@let form = formData()!;
+
+<form [formGroup]="form">
+    <div class="row g-4 mx-4">
+        <!-- First row -->
+        <!-- input filde for Select Dealers -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Select Delers <span class="error-color">*</span></label>
+            <ngx-select
+                [items]="['techni Solutions', 'CORRIGO TECHNOLOGIES', 'Reder Technovision PVT. LTD.', 'Pioneer System', 'Tally Arena', 'R.V System']"
+                placeholder="Select Dealer" ></ngx-select>
+        </div>
+
+        <!-- input filde for Product  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Product<span class="error-color">*</span></label>
+            <ngx-select 
+                [items]="['Z-Pay', 'eduSys-school', 'eduSys-College', 'eduSys-Enquiry', 'eduLib', 'Busy' ]" 
+                placeholder="Select Product" >
+
+            </ngx-select>
+        </div>
+
+        <!-- input filde for Model  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Model<span class="error-color">*</span></label>
+            <ngx-select 
+                [items]="['Z-Pay', 'eduSys-school', 'eduSys-College', 'eduSys-Enquiry', 'eduLib', 'Busy' ]" 
+                placeholder="Select Model" >
+
+            </ngx-select>
+        </div>
+
+        <!-- Second row -->
+        <!-- input filde for Select License -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>License Type <span class="error-color">*</span></label>
+            <ngx-select
+                [items]="['techni Solutions', 'CORRIGO TECHNOLOGIES', 'Reder Technovision PVT. LTD.', 'Pioneer System', 'Tally Arena', 'R.V System']"
+                placeholder="Select License Type"></ngx-select>
+        </div>
+
+        <!-- input filde for Lock Type  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Lock Type<span class="error-color">*</span></label>
+            <ngx-select 
+                [items]="['Z-Pay', 'eduSys-school', 'eduSys-College', 'eduSys-Enquiry', 'eduLib', 'Busy' ]" 
+                placeholder="Select Lock Type">
+
+            </ngx-select>
+        </div>
+
+        <!-- input filde for Model  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Payment Status<span class="error-color">*</span></label>
+            <ngx-select 
+                [items]="['Yes', 'NO']" 
+                placeholder="Select Payment Status" >
+
+            </ngx-select>
+        </div>
+
+        <!-- Third row -->
+        <!-- input filde for Serial No -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Serial Number <span class="error-color">*</span></label>
+            <input 
+                type="number"
+                class="form-control"
+                placeholder="Enter Serial Number"
+            >
+        </div>
+
+        <!-- input filde for Key Number -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Key Number <span class="error-color">*</span></label>
+            <input 
+                type="number"
+                class="form-control"
+                placeholder="Enter Serial Number"
+            >
+        </div>
+
+        <!-- input filde for Sale Date  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Sale Date<span class="error-color">*</span></label>
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Enter Sale Date" 
+                bsDatepicker
+                [bsConfig]="datePickerConfig"
+            >
+        </div>
+
+        <!-- Forth row -->
+         <!-- input filde for Customer Name -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Serial Number <span class="error-color">*</span></label>
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="Enter Customer Name"
+            >
+        </div>
+
+        <!-- input filde for Address 1 -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Address 1 <span class="error-color">*</span></label>
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="Enter Address"
+            >
+        </div>
+
+        <!-- input filde for Address 2  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Address 2<span class="error-color">*</span></label>
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Enter Address" 
+            >
+        </div>
+
+        <!-- Fifth row -->
+        <!-- input filde for State-->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>State <span class="error-color">*</span></label>
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="Enter state"
+            >
+        </div>
+
+        <!-- input filde for City -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>City <span class="error-color">*</span></label>
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="Enter City"
+            >
+        </div>
+
+        <!-- input filde for PinCode  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Pin Code<span class="error-color">*</span></label>
+            <input 
+                type="number" 
+                class="form-control" 
+                placeholder="Enter Pin Code" 
+            >
+        </div>
+
+        <!-- Sixth row -->
+        <!-- input filde for Company Phone-->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Company Phone <span class="error-color">*</span></label>
+            <input 
+                type="number"
+                class="form-control"
+                placeholder="Enter Company Phone"
+            >
+        </div>
+
+        <!-- input filde for Company Email -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Company Email <span class="error-color">*</span></label>
+            <input 
+                type="email"
+                class="form-control"
+                placeholder="Enter Company Email"
+            >
+        </div>
+
+        <!-- input filde for Contact Person  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Contact Person <span class="error-color">*</span></label>
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Enter Contact Person" 
+            >
+        </div>
+
+        <!-- Seventh row -->
+        <!-- input filde for Designation-->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Designation <span class="error-color">*</span></label>
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="Enter Designation"
+            >
+        </div>
+
+        <!-- input filde for Mobile -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Mobile <span class="error-color">*</span></label>
+            <input 
+                type="number"
+                class="form-control"
+                placeholder="Enter Number"
+            >
+        </div>
+
+        <!-- input filde for Email  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Email ID <span class="error-color">*</span></label>
+            <input 
+                type="email" 
+                class="form-control" 
+                placeholder="Enter Email Id" 
+            >
+        </div>
+
+        <!-- Eighter row -->
+        <!-- input filde for Purchased From-->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Purchased From <span class="error-color">*</span></label>
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="Enter Purchased From"
+            >
+        </div>
+
+        <!-- input filde for Purchased Location -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Purchased Location <span class="error-color">*</span></label>
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="Enter Location"
+            >
+        </div>
+
+        <!-- input filde for Amc start Date  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Amc Start Date <span class="error-color">*</span></label>
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Enter Amc start Date"
+                bsDatepicker
+                [bsConfig]="datePickerConfig" 
+            >
+        </div>
+
+        <!-- Ninth row -->
+        <!-- input filde for Amc End-->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Amc End <span class="error-color">*</span></label>
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="Enter Purchased From"
+                bsDatepicker
+                [bsConfig]="datePickerConfig" 
+            >
+        </div>
+
+        <!-- input filde for Status -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Status <span class="error-color">*</span></label>
+            <ngx-select
+                [items]="['Active', 'De-Active', 'Expire']"
+                placeholder="Selet Status">
+            </ngx-select>
+        </div>
+
+        <!-- input filde for Amc Company Alwd  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Comp Alwd <span class="error-color">*</span></label>
+            <input 
+                type="number" 
+                class="form-control" 
+                placeholder="Enter Comp Alwd" 
+            >
+        </div>
+
+        <!-- Tenth row -->
+        <!-- input filde for Emp Alwd-->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Emp Alwd <span class="error-color">*</span></label>
+            <input 
+                type="number"
+                class="form-control"
+                placeholder="Enter Purchased From"
+            >
+        </div>
+
+        <!-- input filde for Grace Pmt Days -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Grace Pmt Days <span class="error-color">*</span></label>
+            <input 
+                type="number"
+                class="form-control"
+                placeholder="Enter Grace Pmt Days">
+        </div>
+
+        <!-- input filde for Grace Renewal Days  -->
+        <div class="form-group col-xl-4 col-sm-4 col-12">
+            <label>Grace Renewal Days <span class="error-color">*</span></label>
+            <input 
+                type="number" 
+                class="form-control" 
+                placeholder="Enter Grace Renewal Days" 
+            >
+        </div>
+
+        <!-- input filde for remarks 1 -->
+        <div class="form-group col-xl-6 col-sm-6 col-12">
+            <label>remarks 1</label>
+            <textarea
+                class="form-control" 
+                placeholder="Enter Enter Remarks 2" 
+                formControlName="address"
+                rows="1"
+            ></textarea>
+        </div>
+
+        <!-- input filde for remarks 2-->
+        <div class="form-group col-xl-6 col-sm-6 col-12">
+            <label>remarks 2</label>
+            <textarea
+                class="form-control" 
+                placeholder="Enter Enter Remarks 2" 
+                formControlName="address"
+                rows="1"
+            ></textarea>
+        </div>
+
+        <!-- save buttom -->
+        <div class="box-footer mt-4 d-flex justify-content-center">
+            <button mat-raised-button class="bg-info" type="submit">
+                <mat-icon aria-hidden="false" aria-label="icon" fontIcon="upload"></mat-icon>
+                SUBMIT
+            </button>
+        </div>
+
+    </div>
+</form>
+
+<!-- 'Premium', 'Enterprise', 'Express', 'Starter', 'Micro', 'Regular' -->

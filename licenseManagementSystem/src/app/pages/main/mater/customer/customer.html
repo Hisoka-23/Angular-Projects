@@ -5,7 +5,7 @@
 
 
 <div class="d-flex align-items-center justify-content-end">
-        <button class="ms-1" mat-raised-button color="primary" (click)="openUserFormModal(userFormTemplate)">
+        <button class="ms-1" mat-raised-button color="accent" (click)="openUserFormModal(userFormTemplate)">
             <mat-icon aria-hidden="false" aria-label="icon" fontIcon="add">
             </mat-icon>
             Add USER
@@ -191,6 +191,7 @@
         </div>
         <div class="modal-body">
 
+            <app-app-edit-customer></app-app-edit-customer>
 
         </div>
     </ng-template>
