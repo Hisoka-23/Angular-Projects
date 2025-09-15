@@ -2,9 +2,7 @@
 
     <app-content-header title="Customer List" [subRoute]="title"></app-content-header>
 
-
-
-<div class="d-flex align-items-center justify-content-end">
+    <div class="d-flex align-items-center justify-content-end">
         <button class="ms-1" mat-raised-button color="accent" (click)="openUserFormModal(userFormTemplate)">
             <mat-icon aria-hidden="false" aria-label="icon" fontIcon="add">
             </mat-icon>
@@ -22,7 +20,7 @@
             [footerHeight]="50" 
             rowHeight="auto" 
             [count]="customers().length" 
-            [offset]="1"
+            [offset]="0"
             [limit]="7" 
             (page)="onPageChange($event)" 
             (sort)="onSortChange($event)">
@@ -183,16 +181,30 @@
 
 
     <ng-template #userFormTemplate>
-        <div class="modal-header d-flex align-items-center justify-content-between">
-            <h4 class="modal-title mb-0">Customer</h4>
-            <button type="button" class="btn-close close" aria-label="Close" (click)="closeUserModal()">
-                <span aria-hidden="true" class="visually-hidden">&times;</span>
-            </button>
+        <div class="row">
+            <div class="col-12">
+                <div class="modal-header d-flex align-items-center justify-content-between">
+                    <h4 class="modal-title mb-0">Customer</h4>
+                    <button type="button" class="btn-close close" aria-label="Close" (click)="closeUserModal()">
+                        <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="col-12">
+                <app-tabs [tabsArray]="tabs" (onTabChange)="tabChange($event)"></app-tabs>
+            </div>
         </div>
         <div class="modal-body">
-
-            <app-app-edit-customer></app-app-edit-customer>
-
+            <div class="row">
+                <div *ngIf="activatedTabIndex === 0">
+                    <app-app-edit-customer></app-app-edit-customer>
+                </div>
+                
+                <div *ngIf="activatedTabIndex === 1">
+                    <app-edit-customer-misc></app-edit-customer-misc>
+                </div>
+            </div>
         </div>
     </ng-template>
 

@@ -1,5 +1,5 @@
 import { CustomerList } from './../../../../interface/customer-List';
-import { Component, inject, signal, TemplateRef } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, signal, TemplateRef } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxDatatableModule, ColumnMode } from '@swimlane/ngx-datatable';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +8,10 @@ import { ContentHeader } from "../../../../widgets/content-header/content-header
 import { CUSTOMER } from '../../../../mock-data/customer.list.mock';
 import { OnInit } from '@angular/core';
 import { AppEditCustomer } from "./app-edit-customer/app-edit-customer";
+import { Tabs } from "../../reusable/tabs/tabs";
+import { NgIf } from '@angular/common';
+import { EditCustomerMisc } from "./edit-customer-misc/edit-customer-misc";
+
 
 @Component({
   selector: 'app-customer',
@@ -18,7 +22,10 @@ import { AppEditCustomer } from "./app-edit-customer/app-edit-customer";
     MatIconModule,
     ModalModule,
     ContentHeader,
-    AppEditCustomer
+    AppEditCustomer,
+    Tabs,
+    NgIf,
+    EditCustomerMisc
 ],
   providers:[BsModalService],
   templateUrl: './customer.html',
@@ -36,6 +43,23 @@ export class Customer implements OnInit {
 
   ColumnMode = ColumnMode;
 
+  constructor(private cd: ChangeDetectorRef) {}
+
+  // tabs
+  //tabs: string[] = ['Main', 'Misc. Infomation'];
+
+  tabs:any = [
+  { label: 'Main', icon: 'fa-solid fa-pencil  ' }, // using FontAwesome
+  { label: 'Misc. Information', icon: 'fa-solid fa-pen-nib  ' }
+];
+
+  activatedTabIndex: number = 0;
+  
+  tabChange(tabIndex: number){
+    this.activatedTabIndex = tabIndex;
+    console.log('Activated Tab:', this.activatedTabIndex);
+  }
+
   ngOnInit() {
     console.log('ngoninit customer');
     this.customers.set(CUSTOMER);
@@ -49,12 +73,15 @@ export class Customer implements OnInit {
     console.log(event);
   }
 
-    openUserFormModal(template: TemplateRef<void>, User?: CustomerList){
-  
-      this.modalRef.set(this.modalService.show(template,{ class: 'modal-xl' }));
-    }
+  openUserFormModal(template: TemplateRef<void>, User?: CustomerList){
+    this.activatedTabIndex = 0; // or whichever is default
+    this.modalRef.set(this.modalService.show(template,{ class: 'modal-xl' }));
 
-      closeUserModal(){
+    // 🔑 ensures Angular immediately updates the view
+    setTimeout(() => this.cd.detectChanges(), 0);
+  }
+
+  closeUserModal(){
     this.modalRef()?.hide();
   }
 

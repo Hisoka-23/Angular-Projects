@@ -45,7 +45,6 @@ export class AppEditCustomer implements OnInit {
 
   initForm() {
     const form = this.FormBuilder.group({
-
     })
   }
 
