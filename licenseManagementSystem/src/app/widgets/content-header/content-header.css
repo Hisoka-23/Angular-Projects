@@ -2,3 +2,7 @@ div.col-sm-6{
     align-self: center;
     margin-top: -40px;
 }
+
+.app-content-header{
+    padding: 1rem .5rem !important;
+}

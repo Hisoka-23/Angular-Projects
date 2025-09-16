@@ -49,8 +49,8 @@ export class Customer implements OnInit {
   //tabs: string[] = ['Main', 'Misc. Infomation'];
 
   tabs:any = [
-  { label: 'Main', icon: 'fa-solid fa-pencil  ' }, // using FontAwesome
-  { label: 'Misc. Information', icon: 'fa-solid fa-pen-nib  ' }
+  { label: 'Main', icon: 'fa-solid fa-pencil' }, // using FontAwesome
+  { label: 'Misc. Information', icon: 'fa-solid fa-pen-nib' }
 ];
 
   activatedTabIndex: number = 0;
