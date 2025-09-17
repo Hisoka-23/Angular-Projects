@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomerList } from './customer-list';
+import { PartMasterAddressModel } from './part-master-address-model';
 
-describe('CustomerList', () => {
-  let component: CustomerList;
-  let fixture: ComponentFixture<CustomerList>;
+describe('PartMasterAddressModel', () => {
+  let component: PartMasterAddressModel;
+  let fixture: ComponentFixture<PartMasterAddressModel>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomerList]
+      imports: [PartMasterAddressModel]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CustomerList);
+    fixture = TestBed.createComponent(PartMasterAddressModel);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

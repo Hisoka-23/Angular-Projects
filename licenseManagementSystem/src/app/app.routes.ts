@@ -60,8 +60,8 @@ export const routes: Routes = [
             {
                 path: 'customer-list',
                 loadComponent: () => 
-                    import('./pages/main/view/customer-list/customer-list').then(
-                        m => m.CustomerList
+                    import('./pages/main/view/view-customerList/view-customer-list').then(
+                        m => m.ViewCustomerList
                 ),
             },
             {

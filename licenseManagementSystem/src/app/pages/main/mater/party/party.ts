@@ -7,6 +7,9 @@ import { PartyList } from '../../../../interface/party-List';
 import { PARTY } from '../../../../mock-data/party.list.mock';
 import { BsModalRef, BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { PartyMasterModel } from "./party-master-model/party-master-model";
+import { Tabs } from "../../reusable/tabs/tabs";
+import { PartMasterAddressModel } from "./part-master-address-model/part-master-address-model";
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-party',
@@ -18,7 +21,10 @@ import { PartyMasterModel } from "./party-master-model/party-master-model";
     DatatableComponent,
     NgxDatatableModule,
     ModalModule,
-    PartyMasterModel
+    PartyMasterModel,
+    NgIf,
+    Tabs,
+    PartMasterAddressModel
 ],
   providers:[BsModalService],
   templateUrl: './party.html',
@@ -37,6 +43,18 @@ export class Party implements OnInit {
   constructor(private cd: ChangeDetectorRef) {}
 
   ColumnMode = ColumnMode;
+
+  tabs:any = [
+    {label: 'Main', icon: 'fa-solic fa-pencil'},
+    {label: 'Address', icon: 'fa-solid fa-pen-nib'}
+  ];
+
+  activatedTabIndex: number = 0;
+
+  tabChange(tabIndex: number){
+    this.activatedTabIndex = tabIndex;
+    console.log('ActivatedTab:', this.activatedTabIndex);
+  }
 
   ngOnInit() {
     console.log('ngoninit party');
