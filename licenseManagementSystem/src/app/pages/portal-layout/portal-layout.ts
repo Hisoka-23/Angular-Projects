@@ -10,8 +10,8 @@ import { RouterOutlet } from '@angular/router';
   imports: [Header, Sidebar, RouterOutlet, Footer],
   template: `
           <div class="app-wrapper bg-color">
-            <app-header style="display: contents;"></app-header>,
-            <app-sidebar style="display: contents;"></app-sidebar>,
+            <app-header style="display: contents;"></app-header>
+            <app-sidebar  style="display: contents;"></app-sidebar>
 
             <main class="app-main bg-color">
                <div class="app-content">
@@ -25,5 +25,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './portal-layout.css'
 })
 export class PortalLayout {
+
 
 }

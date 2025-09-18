@@ -1,1 +1,47 @@
-<p>enquiry works!</p>
+<div class="mx-3 my-1 border-0 p-0">
+
+    <app-content-header title="Enquiry List" [subRoute]="title"></app-content-header>
+
+    <div class="d-flex align-items-center justify-content-end">
+        <button class="ms-1" mat-raised-button color="accent" (click)="openUserFormModal(EnquiryFormTemplate)">
+            <mat-icon aria-hidden="false" aria-label="icon" fontIcon="add">
+            </mat-icon>
+            Add USER
+        </button>
+    </div> 
+
+    <app-customer-list-table></app-customer-list-table>
+
+    <ng-template #EnquiryFormTemplate>
+        <div class="row">
+            <div class="col-12">
+                <div class="modal-header d-flex align-items-center justify-content-between">
+                    <h4 class="modal-title mb-0">Customer</h4>
+                    <button type="button" class="btn-close close" aria-label="Close" (click)="closeUserModal()">
+                        <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="col-12">
+                <app-tabs [tabsArray]="tabs" (onTabChange)="tabChange($event)"></app-tabs>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div *ngIf="activatedTabIndex === 0">
+                    <app-enquiry-main></app-enquiry-main>
+                </div>
+                
+                <div *ngIf="activatedTabIndex === 1">
+                    <app-enquiry-products></app-enquiry-products>
+                </div>
+
+                <div *ngIf="activatedTabIndex === 2">
+                    <app-enquiry-followup></app-enquiry-followup>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+</div>
